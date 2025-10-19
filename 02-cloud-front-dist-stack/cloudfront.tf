@@ -7,9 +7,9 @@ resource "aws_cloudfront_origin_access_control" "this" {
 
 resource "aws_cloudfront_distribution" "this" {
   origin {
-    domain_name              = data.aws_s3_bucket.cloudiq.bucket_regional_domain_name
+    domain_name              = data.aws_s3_bucket.this.bucket_regional_domain_name
     origin_id                = "s3-cloudiq-origin"
-    origin_access_control_id = aws_cloudfront_origin_access_control.default.id
+    origin_access_control_id = aws_cloudfront_origin_access_control.this.id
   }
 
   enabled             = true
@@ -17,7 +17,7 @@ resource "aws_cloudfront_distribution" "this" {
   comment             = "CloudFront distribution for CloudIQ static site"
   default_root_object = "index.html"
 
-  aliases = ["cloudiq.com.br", "www.cloudiq.com.br"]
+  aliases = ["cloudiq.com.br" ]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -33,7 +33,7 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   viewer_certificate {
-    acm_certificate_arn = data.aws_acm_certificate.cloudiq.arn
+    acm_certificate_arn = data.aws_acm_certificate.this.arn
     ssl_support_method  = "sni-only"
   }
 

@@ -1,4 +1,4 @@
 data "aws_route53_zone" "this" {
-  name         = var.route53_certificate.zone_name
-  private_zone = true
+  name         = "cloudiq.com.br"
+  private_zone = false
 }

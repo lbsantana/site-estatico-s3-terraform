@@ -40,7 +40,7 @@ variable "acm_certificate" {
 
   default = {
     domain_name               = "cloudiq.com.br"
-    subject_alternative_names = ["*.cloudiq.com.br"]
+    subject_alternative_names = ["*.cloudiq.com.br",]
   }
 }
 

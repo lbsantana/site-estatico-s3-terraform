@@ -17,15 +17,3 @@ variable "tags" {
     "Environment" = "production"
   }
 }
-
-variable "route53_zone_name" {
-  type    = object({
-    name    = string
-    name = string
-  })
-
-  default = {
-    name    = "cloudiq.com.br"
-    name = "www.cloudiq.com.br"
-  }
-}

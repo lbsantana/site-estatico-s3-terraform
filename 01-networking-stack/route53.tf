@@ -4,3 +4,4 @@ resource "aws_route53_zone" "this" {
   force_destroy = true
   tags          = var.tags
 }
+
