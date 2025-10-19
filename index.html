@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Barbosa</title>
+  <!-- Inicializa o tema cedo para evitar FOUC (flash do tema errado) -->
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (stored === 'dark' || (!stored && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      } catch (e) {
+        // Em caso de erro no storage, assume light
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+  <link href="dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-white dark:bg-black text-black dark:text-white antialiased overflow-x-hidden">
+  <div class="min-h-screen">
+
+  <!-- Header -->
+    <header class="flex justify-between items-center max-w-6xl mx-auto py-6 px-6">
+      <h1 class="text-2xl font-bold">Lucas<span class="text-primary">DevOps</span></h1>
+      <nav class="flex items-center flex-wrap gap-3 sm:gap-6 text-sm sm:text-base">
+        <a href="https://www.linkedin.com/in/lucas-barbosa-41381b236/" class="hover:text-primary transition">Linkedin</a>
+        <a href="https://github.com/lbsantana?tab=repositories" target="_blank" class="hover:text-primary transition">Repositório</a>
+        <a href="https://wa.me/5511993439819" class="hover:text-primary transition">WhatsApp</a>
+        <button id="theme-toggle" aria-label="Alternar tema" aria-pressed="false" class="p-2 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary">
+          <span class="sr-only">Alternar entre modo claro e escuro</span>
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-10H21m-18 0h1.34M4.93 4.93l.71.71m12.02 12.02l.71.71M4.93 19.07l.71-.71m12.02-12.02l.71-.71M12 5a7 7 0 100 14 7 7 0 000-14z" />
+          </svg>
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <a href="#content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 bg-white dark:bg-black text-black dark:text-white px-4 py-2 rounded-md shadow ring-1 ring-gray-200 dark:ring-gray-800">Pular para o conteúdo</a>
+
+    <main id="content">
+
+<!-- Hero -->
+<section class="bg-white dark:bg-black text-black dark:text-white py-16 sm:py-20 md:py-24">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h2 class="text-5xl font-bold mb-6 text-black dark:text-white">Olá, sou Lucas Barbosa</h2>
+    <p class="text-gray-700 dark:text-gray-300 text-lg mb-2">
+      Estudante de Ciência da Computação, Certified AWS Solutions Architect - Associate, focado em DevOps e Cloud Computing.
+    </p>
+    <p class="text-gray-700 dark:text-gray-300 text-lg">
+      Transformando infraestrutura em código e desafios em soluções escaláveis.
+    </p>
+  </div>
+
+</section>
+
+<!-- CTA GitHub -->
+<section class="bg-white dark:bg-black text-black dark:text-white py-24">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h3 class="sr-only">Automação do deploy</h3>
+    <p class="text-gray-700 dark:text-gray-300 text-xl mb-2">
+      Quer saber como construí este site estático do zero, versionando tudo no GitHub e automatizando o deploy no S3 com Terraform?
+    </p>
+    <p class="text-gray-700 dark:text-gray-300 text-xl mb-8">
+      Acesse meu repositório e veja a automação do deploy na prática.
+    </p>
+    <a href="#contact" class="inline-block px-8 py-4 bg-primary text-white rounded-lg hover:bg-blue-600 transition" aria-label="Abrir GitHub do projeto">
+      Abrir GitHub 🗁
+    </a>
+  </div>
+</section>
+
+  <!-- Intro Video -->
+  <section id="intro-video" class="bg-white dark:bg-black text-black dark:text-white py-20 px-6" aria-labelledby="intro-video-title">
+    <h2 id="intro-video-title" class="sr-only">Vídeo de introdução</h2>
+    <div class="w-full max-w-6xl mx-auto">
+      <div class="relative aspect-video rounded-xl shadow-lg ring-1 ring-gray-200 dark:ring-gray-800 overflow-hidden">
+        <iframe class="absolute inset-0 w-full h-full"
+          src="https://www.youtube.com/embed/XmxxyHDF12E"
+          title="Vídeo de introdução"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre / About -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-6">
+    <h3 class="text-5xl font-bold mb-6 text-black dark:text-white">Sobre mim</h3>
+    <figure class="mt-8">
+    <p class="text-black dark:text-white">
+      Sou DevOps Engineer em formação, especializado em AWS e automação de infraestrutura como código. Trabalho com Terraform, Docker, Kubernetes, CI/CD e GitOps, buscando sempre otimizar e escalar ambientes em nuvem.
+    </p>
+
+    <p class="mt-5 dark:text-white">
+      Acredito na combinação entre automação, observabilidade e boas práticas de Cloud como pilares para operações modernas e sustentáveis.
+    </p>
+
+    <!-- Sobre / About -->
+  <section id="about" class="max-w-4xl mx-auto py-20 px-6">
+    <h3 class="text-5xl font-bold mb-6 text-black dark:text-white">Projetos e Laboratórios</h3>
+    <figure class="mt-8">
+
+    <figure class="mt-8">
+      <button id="about-image-open" type="button" class="group block w-full text-left focus:outline-none focus:ring-2 focus:ring-primary rounded-xl">
+        <div class="relative w-full aspect-[16/9] rounded-xl overflow-hidden shadow-lg ring-1 ring-gray-200 dark:ring-gray-800">
+          <img
+            src="https://i.ibb.co/v6NQM70K/Sem-nome-1000-x-1000-px-1.png"
+            alt="Retrato de Lucas Barbosa"
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-200 group-hover:scale-[1.01]"
+          />
+        </div>
+      </button>
+    </figure>
+
+    <!-- Modal da imagem Sobre mim -->
+    <div id="about-image-modal" class="fixed inset-0 z-50 hidden">
+      <div class="absolute inset-0 bg-black/70" data-close="backdrop" aria-hidden="true"></div>
+      <div class="relative z-10 flex items-center justify-center min-h-full p-6">
+        <div role="dialog" aria-modal="true" aria-labelledby="about-image-modal-title" class="bg-white dark:bg-black rounded-xl shadow-xl ring-1 ring-gray-200 dark:ring-gray-800 w-full max-w-5xl overflow-hidden">
+          <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-800">
+            <h2 id="about-image-modal-title" class="text-sm font-semibold text-black dark:text-white">Visualizar imagem</h2>
+            <button id="about-image-close" type="button" class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary" aria-label="Fechar">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                <path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06z" clip-rule="evenodd"/>
+              </svg>
+            </button>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-900">
+            <img id="about-image-modal-img" src="https://i.ibb.co/v6NQM70K/Sem-nome-1000-x-1000-px-1.png" alt="Retrato de Lucas Barbosa – ampliado" class="w-full h-auto" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <!-- Descrição após Card 1 -->
+  <div class="md:col-span-3 text-gray-700 dark:text-gray-300 leading-relaxed space-y-4">
+    <p>
+      Ao longo da minha trajetória, desenvolvi uma série de laboratórios práticos voltados a DevOps e Cloud Computing, aplicando na prática conceitos de automação, infraestrutura como código e integração contínua. No projeto DVN Workshop, construí um pipeline completo com Docker, GitHub Actions e Kubernetes, explorando o ciclo de CI/CD e o deploy automatizado de aplicações containerizadas.
+    </p>
+    <p>
+      A partir dele, evoluí para o DVN Workshop GitOps, onde implementei ArgoCD e práticas de entrega contínua declarativa, utilizando o Git como fonte única da verdade.
+    </p>
+    <p>
+      Complementando essa jornada, desenvolvi a BIA (Agente AI de Integração e Automação), utilizando Amazon Q no CLI, essa ferramenta foi criada para demonstrar automação inteligente e integração entre APIs e serviços AWS, com foco em IaC e segurança em nuvem.
+    </p>
+    <p>
+      Esses projetos refletem minha forma de aprender, testando, construindo, automatizando e consolidam meu propósito de unir Cloud, DevOps e inovação para criar soluções escaláveis e eficientes.
+    </p>
+    <p>
+      Para mais detalhes acesse meu repositório no GitHub.
+    </p>
+  </div>
+
+  <!-- Features / Projetos -->
+<section id="projects" class="bg-white dark:bg-black py-20">
+  <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    
+    <!-- Card 1 -->
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 md:hover:scale-105 transition">
+      <h4 class="font-bold text-xl mb-2 text-black dark:text-white">⚙️ CI/CD & Automação</h4>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Criação de pipelines com GitHub Actions, integração contínua e deploy automatizado em ambientes AWS e Kubernetes. Foco em agilidade, versionamento e qualidade de entrega.
+      </p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 md:hover:scale-105 transition">
+      <h4 class="font-bold text-xl mb-2 text-black dark:text-white">🧩 Infraestrutura como Código</h4>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Provisionamento de ambientes com Terraform e Ansible, aplicando práticas de IaC e GitOps com ArgoCD. Automação completa do ciclo de vida da infraestrutura em nuvem.
+      </p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 md:hover:scale-105 transition">
+      <h4 class="font-bold text-xl mb-2 text-black dark:text-white">📈 Observabilidade & Performance</h4>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Monitoramento e métricas com CloudWatch, Grafana e Prometheus. Dashboards que conectam infraestrutura, aplicações e negócios para tomadas de decisão assertivas.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- Contato -->
+  <section id="contact" class="max-w-4xl mx-auto py-20 px-6 text-center">
+    <h3 class="text-3xl font-bold">Contato</h3>
+    <p class="text-black dark:text-white mb-6">
+      Quer conversar sobre projetos ou oportunidades? Me envie uma mensagem!
+    </p>
+    <a href="mailto:lucaslukibs@gmail.com" class="px-8 py-4 bg-primary text-white rounded-lg hover:bg-blue-600 transition">
+      Enviar Email
+    </a>
+  </section>
+
+  <!-- Footer -->
+  </main>
+
+  <footer class="py-12 text-center text-gray-600 dark:text-gray-400 text-sm border-t border-gray-200 dark:border-gray-800">
+    &copy; 2025 Lucas Barbosa. Todos os direitos reservados.
+  </footer>
+
+    <!-- Script para alternar tema -->
+<script>
+  const toggleButton = document.getElementById('theme-toggle');
+  const html = document.documentElement;
+
+  // Ajusta estado acessível do botão ao carregar
+  toggleButton.setAttribute('aria-pressed', html.classList.contains('dark'));
+
+  toggleButton.addEventListener('click', () => {
+    html.classList.toggle('dark');
+
+    // Atualiza estado acessível
+    const isDark = html.classList.contains('dark');
+    toggleButton.setAttribute('aria-pressed', isDark);
+
+    // Salva a preferência no localStorage
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  });
+</script>
+
+<!-- Script do modal da imagem Sobre mim -->
+<script>
+  (function () {
+    const openBtn = document.getElementById('about-image-open');
+    const modal = document.getElementById('about-image-modal');
+    const closeBtn = document.getElementById('about-image-close');
+
+    if (!openBtn || !modal || !closeBtn) return;
+
+    const open = () => {
+      modal.classList.remove('hidden');
+      closeBtn.focus();
+    };
+    const close = () => {
+      modal.classList.add('hidden');
+      openBtn.focus();
+    };
+
+    openBtn.addEventListener('click', open);
+    closeBtn.addEventListener('click', close);
+    modal.addEventListener('click', (e) => {
+      if (e.target && e.target.getAttribute('data-close') === 'backdrop') {
+        close();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        close();
+      }
+    });
+  })();
+</script>
+
+</div>
+</body>
+</html>
