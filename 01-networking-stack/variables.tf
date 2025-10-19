@@ -31,3 +31,27 @@ variable "static_site" {
     website_error_document = "404.html"
   }
 }
+
+variable "acm_certificate" {
+  type = object({
+    domain_name               = string
+    subject_alternative_names = list(string)
+  })
+
+  default = {
+    domain_name               = "cloudiq.com.br"
+    subject_alternative_names = ["*.cloudiq.com.br"]
+  }
+}
+
+variable "route53_certificate" {
+  type = object({
+    name               = string
+    comment            = string
+  })
+
+  default = {
+    name               = "cloudiq.com.br"
+    comment = "Public hosted zone for CloudIQ site"
+  }
+}
