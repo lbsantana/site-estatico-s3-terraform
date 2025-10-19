@@ -1,12 +1,4 @@
 terraform {
-
-  backend "s3" {
-    bucket = var.remote_backend.bucket_name
-    key    = "networking/terraform.tfstate"
-    region = var.auth.region
-    use_lockfile = true
-  }
-
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -26,4 +18,3 @@ provider "aws" {
     role_arn = var.auth.assume_role_arn
   }
 }
-

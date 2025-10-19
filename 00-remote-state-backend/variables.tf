@@ -18,7 +18,7 @@ variable "tags" {
   }
 }
 
-variable "remote_backend" {
+variable "backend_remote_state" {
   type = object({
     bucket_name                = string
 })
