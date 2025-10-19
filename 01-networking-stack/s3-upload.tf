@@ -1,15 +1,15 @@
 locals {
   # Lista recursiva de todos os arquivos do site
-  static_files = fileset("${path.module}/Frontend", "**")
+  static_files = fileset("${path.module}/APP/Frontend/dist", "**")
 }
 
-resource "aws_s3_object" "dist_files" {
+resource "aws_s3_object" "frontend_files" {
   for_each = { for file in local.static_files : file => file }
 
   bucket = aws_s3_bucket.StaticSite.bucket
   key    = each.value
-  source = "${path.module}/Frontend/${each.value}"
-  etag   = filemd5("${path.module}/Frontend/${each.value}")
+  source = "${path.module}/APP/Frontend/dist/${each.value}"
+  etag   = filemd5("${path.module}/APP/Frontend/dist/${each.value}")
 
   # Define o Content-Type automaticamente com base na extensão
   content_type = lookup(
