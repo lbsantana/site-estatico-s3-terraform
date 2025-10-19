@@ -21,15 +21,13 @@ variable "tags" {
 variable "static_site" {
   type = object({
     bucket_name        = string
-    website_index_file = string
-    website_error_file = string
-    acl                = string
+    website_index_document = string
+    website_error_document = string
   })
 
   default = {
     bucket_name        = "static-site-365827924923"
-    website_index_file = "index.html"
-    website_error_file = "404.html"
-    acl                = "private"
+    website_index_document = "index.html"
+    website_error_document = "404.html"
   }
 }
