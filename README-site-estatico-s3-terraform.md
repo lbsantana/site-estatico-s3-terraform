@@ -132,7 +132,7 @@ Ao final da execução, o site estará disponível via HTTPS no domínio configu
 
 **Exemplo de saída:**
 ```bash
-site_url = "https://www.lucasbarbosa.dev"
+site_url = "https://cloudiq.com.br"
 ```
 
 ---
