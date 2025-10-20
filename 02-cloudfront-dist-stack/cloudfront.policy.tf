@@ -1,6 +1,6 @@
 data "aws_iam_policy_document" "cloudfront_access" {
   statement {
-    effect = "Allow"
+    effect  = "Allow"
     actions = ["s3:GetObject"]
     resources = ["${data.aws_s3_bucket.this.arn}/*"]
 

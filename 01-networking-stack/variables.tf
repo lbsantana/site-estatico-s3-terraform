@@ -11,7 +11,7 @@ variable "auth" {
 }
 
 variable "tags" {
-  type = map(string)
+  type    = map(string)
   default = {
     "Project"     = "site-estatico-s3-terraform"
     "Environment" = "production"
@@ -33,7 +33,7 @@ variable "static_site" {
 }
 
 variable "acm_certificate" {
-  type = object({
+  type   = object({
     domain_name               = string
     subject_alternative_names = list(string)
   })
@@ -45,12 +45,12 @@ variable "acm_certificate" {
 }
 
 variable "route53_certificate" {
-  type = object({
+  type    = object({
     name               = string
     comment            = string
   })
 
-  default = {
+  default  = {
     name               = "cloudiq.com.br"
     comment = "Public hosted zone for CloudIQ site"
   }

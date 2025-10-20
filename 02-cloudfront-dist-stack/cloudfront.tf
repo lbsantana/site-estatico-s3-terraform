@@ -17,7 +17,7 @@ resource "aws_cloudfront_distribution" "this" {
   comment             = "CloudFront distribution for CloudIQ static site"
   default_root_object = "index.html"
 
-  aliases = ["cloudiq.com.br" ]
+  aliases            = ["cloudiq.com.br" ]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -45,7 +45,7 @@ resource "aws_cloudfront_distribution" "this" {
 
   price_class = "PriceClass_100"
 
-  tags = var.tags
+  tags        = var.tags
 }
 
 output "cloudfront_domain_name" {

@@ -2,14 +2,14 @@ resource "aws_s3_bucket_policy" "StaticSitePolicy" {
   depends_on = [aws_s3_bucket_public_access_block.StaticSitePublicBlock]
   bucket     = aws_s3_bucket.StaticSite.id
 
-  policy = jsonencode({
+  policy     = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
-        Effect = "Allow"
+        Effect    = "Allow"
         Principal = "*"
-        Action = ["s3:GetObject"]
-        Resource = "${aws_s3_bucket.StaticSite.arn}/*"
+        Action    = ["s3:GetObject"]
+        Resource  = "${aws_s3_bucket.StaticSite.arn}/*"
       }
     ]
   })

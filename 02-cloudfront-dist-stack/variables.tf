@@ -11,7 +11,7 @@ variable "auth" {
 }
 
 variable "tags" {
-  type = map(string)
+  type    = map(string)
   default = {
     "Project"     = "site-estatico-s3-terraform"
     "Environment" = "production"

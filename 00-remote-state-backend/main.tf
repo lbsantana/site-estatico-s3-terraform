@@ -8,13 +8,9 @@ terraform {
 }
 
 provider "aws" {
-  region = var.auth.region
+  region                 = var.auth.region
 
-  default_tags {
-    tags = var.tags
-  }
+  default_tags { tags    = var.tags }
 
-  assume_role {
-    role_arn = var.auth.assume_role_arn
-  }
+  assume_role { role_arn = var.auth.assume_role_arn }
 }
